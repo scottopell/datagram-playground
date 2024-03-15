@@ -3,7 +3,8 @@ use std::io;
 use std::net::UdpSocket;
 use std::os::unix::net::UnixDatagram;
 
-const MAX_PACKET_SIZE: usize = 8192 * 10;
+const UDP_PACKET_LIMIT_BYTES: usize = 65_507;
+const MAX_PACKET_SIZE: usize = UDP_PACKET_LIMIT_BYTES * 10;
 
 fn main() -> io::Result<()> {
     let args: Vec<String> = env::args().collect();
